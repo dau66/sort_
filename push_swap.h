@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:15:55 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/02 15:38:52 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/02 17:42:13 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,13 @@ void			create_circulater_list(t_stack *node);
 void			free_linked_list_circulation(t_stack *head);
 void			rotate_left(t_stack **node);
 void			rotate_right(t_stack **node);
-t_stack			*sa(t_stack *node);
-t_stack			*sb(t_stack *node);
+void			sa(t_stack **node);
+void			sb(t_stack **node);
 void			pa(t_stack **node1, t_stack **node2);
 void			pb(t_stack **node1, t_stack **node2);
+void			ra(t_stack **node);
+void			rb(t_stack **node);
+void			rra(t_stack **node);
 void			free_linked_list(t_stack *head);
 t_stack			*delete_first_node(t_stack *head);
 t_stack			*insert_head(t_stack *head,int value);

@@ -6,23 +6,22 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:09:39 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/02 15:38:16 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/02 16:35:14 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 t_stack *insert_head(t_stack *head, int value)
 {
-	t_stack *newnode;
-	newnode = create_node(value);
-	if(!newnode)
-		return NULL;
-	if(!head)
-		return newnode;
-	newnode -> next = head;
-	head -> prev = newnode;
-	free(head);
-	return newnode;
+    t_stack *newnode = create_node(value);
+    if (!newnode)
+        return head; 
+    newnode->next = head;
+    newnode->prev = NULL; 
+
+    if (head != NULL)
+        head->prev = newnode; 
+    return newnode; 
 }
 
 t_stack *delete_first_node(t_stack *head)
@@ -31,6 +30,7 @@ t_stack *delete_first_node(t_stack *head)
 	if(!head)
 		return NULL;
 	new_head = head->next;
+	new_head ->prev = NULL;
 	free(head);
 	return new_head;
 }

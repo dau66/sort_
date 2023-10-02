@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap.a
-SRCS =  handle_node.c swap_node1.c push_swap_free_and_error.c
+SRCS =  handle_node.c swap_node1.c push_swap_free_and_error.c swap_node2.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
