@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:19:40 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/02 17:42:55 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/03 15:32:19 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void destructor() {
 #include "push_swap.h"
 #include <stdio.h>
 #define CHECK_circulater 0
-#define CHECK_sa 1
-#define CHECK_pa 1
+#define CHECK_sa 0
+#define CHECK_pa 0
 #define DEBUG 1
 #if(DEBUG)
 static void print_list(t_stack *node)
@@ -47,15 +47,18 @@ int	main(int argc, char **argv)
 		link_list(&stack_a, ft_atoi(argv[i]));
 		i++;
 	}
+	sort_small_swap(&stack_a,&stack_b,argc);
 #if (CHECK_circulater)
 	create_circulater_list(stack_a);
 #endif
 #if(CHECK_sa)
-	sa(&stack_a);
+	sa(&stack_a,1);
 #endif
 #if(CHECK_pa)
 	pa(&stack_a,&stack_b);
-	rra(&stack_a);
+	pa(&stack_a,&stack_b);
+	pa(&stack_a,&stack_b);
+	rr(&stack_a,&stack_b);
 #endif
 	print_list(stack_a);
 	print_list(stack_b);
@@ -65,34 +68,3 @@ int	main(int argc, char **argv)
 	// ft_printf("%d\n,stack_a->value);
 }
 
-// int main()
-// {
-// 	ft_printf("aaa");
-// }
-
-// int	main(int argc, char **argv)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	ft_printf("%d\n", argc);
-// 	while (argv[i] != NULL)
-// 	{
-// 		ft_printf("%s\n", argv[i]);
-// 		i++;
-// 	}
-// }
-
-// insert_next(stack_a,100);
-// create_circulater_list(stack_a);
-// while(stack_a)
-// {
-// 	ft_printf("%d\n",stack_a->value);
-// 	stack_a = stack_a->next;
-// }
-// free(stack_a);
-// while (argc--)
-// {
-// 	ft_printf("%d\n", ft_atoi(argv[i]));
-// 	i++;
-// }

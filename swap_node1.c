@@ -6,13 +6,13 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 18:28:39 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/02 17:41:29 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/02 18:06:59 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **node)
+void	sa(t_stack **node,int bool)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -24,10 +24,11 @@ void	sa(t_stack **node)
 	first->next = second->next;
 	second->next = first;
 	*node = second;
-	ft_printf("sa\n");
+	if(bool)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack **node)
+void	sb(t_stack **node,int bool)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -39,7 +40,8 @@ void	sb(t_stack **node)
 	first->next = second->next;
 	second->next = first;
 	*node = second;
-	ft_printf("sb\n");
+	if(bool)
+		ft_printf("sb\n");
 }
 
 
@@ -73,7 +75,7 @@ void pb(t_stack **node1,t_stack **node2)
 
 
 
-void ra(t_stack **node)
+void ra(t_stack **node,int bool)
 {
 	if((*node) -> next == NULL || !(*node) || !node)
 		return ;
@@ -91,6 +93,7 @@ void ra(t_stack **node)
 	tail -> next = head;
 	head -> next = NULL;
 	*node = head_next;
-	ft_printf("ra\n");
+	if(bool)
+		ft_printf("ra\n");
 	
 }
