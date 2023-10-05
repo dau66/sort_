@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:25:30 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/04 13:20:17 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/04 21:09:33 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,16 @@ size_t	value_compare(t_stack *first)
 		return (4);
 	else
 		return (5);
+}
+
+size_t struct_count(t_stack *nodes)
+{
+	size_t i;
+	i = 0;
+	while(nodes)
+	{
+		nodes = nodes->next;
+		i ++;
+	}
+	return i;
 }

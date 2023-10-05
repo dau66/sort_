@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 18:28:39 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/02 18:06:59 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/04 21:19:09 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,20 @@ void	sb(t_stack **node,int bool)
 
 void pa(t_stack **node1,t_stack **node2)
 {
-	if((*node1) -> next == NULL || (*node1) == NULL)
-		return;
+	
 	*node2 = insert_head(*node2, (*node1)->value);
 	if(!node2)
-		return ;
+		exit(EXIT_FAILURE) ;
 	*node1 = delete_first_node(*node1);
-	if(!node1)
-		return ;
 	ft_printf("pa\n");
 }
 
 void pb(t_stack **node1,t_stack **node2)
 {
-	if((*node1) -> next == NULL || (*node1) == NULL)
-		return;
 	*node2 = insert_head(*node2, (*node1)->value);
 	if(!node2)
-		return ;
+		exit(EXIT_FAILURE) ;
 	*node1 = delete_first_node(*node1);
-	if(!node1)
-		return ;
 	ft_printf("pb\n");
 }
 

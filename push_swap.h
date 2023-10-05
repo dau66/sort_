@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:15:55 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/04 15:51:13 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/05 14:01:00 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ t_stack			*delete_first_node(t_stack *head);
 t_stack			*insert_head(t_stack *head, int value);
 size_t			value_compare(t_stack *first);
 void			sort_small_swap(t_stack **stack_a, t_stack **stack_b, int argc);
-void			sort_3(t_stack **stack_a);
-void			sort_4(t_stack **stack_a, t_stack **stack_b);
-void			sort_5(t_stack **stack_a, t_stack **stack_b);
-void			sort_6(t_stack **stack_a, t_stack **stack_b,size_t count);
+void			sort_big_swap(t_stack **stack_a, t_stack **stack_b);
+size_t			struct_count(t_stack *nodes);
 #endif

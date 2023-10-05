@@ -6,33 +6,41 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:09:39 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/02 16:35:14 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/04 21:22:34 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-t_stack *insert_head(t_stack *head, int value)
-{
-    t_stack *newnode = create_node(value);
-    if (!newnode)
-        return head; 
-    newnode->next = head;
-    newnode->prev = NULL; 
 
-    if (head != NULL)
-        head->prev = newnode; 
-    return newnode; 
+t_stack	*insert_head(t_stack *head, int value)
+{
+	t_stack	*newnode;
+
+	newnode = create_node(value);
+	newnode->next = head;
+	newnode->prev = NULL;
+	if (head != NULL)
+		head->prev = newnode;
+	return (newnode);
 }
 
-t_stack *delete_first_node(t_stack *head)
+t_stack	*delete_first_node(t_stack *head)
 {
-	t_stack *new_head;
-	if(!head)
+	size_t	i;
+	t_stack	*new_head;
+
+	i = struct_count(head);
+	if (i == 1)
+	{
+		free(head);
 		return NULL;
+	}
+	if (!head)
+		return (NULL);
 	new_head = head->next;
-	new_head ->prev = NULL;
+	new_head->prev = NULL;
 	free(head);
-	return new_head;
+	return (new_head);
 }
 
 t_stack	*create_node(int num)
@@ -40,8 +48,8 @@ t_stack	*create_node(int num)
 	t_stack	*newnode;
 
 	newnode = (t_stack *)malloc(sizeof(t_stack));
-	if(!newnode)
-		return NULL;
+	if (!newnode)
+		exit(EXIT_FAILURE);
 	newnode->value = num;
 	newnode->prev = NULL;
 	newnode->next = NULL;
@@ -50,13 +58,13 @@ t_stack	*create_node(int num)
 
 void	link_list(t_stack **head, int num)
 {
-	size_t		i;
+	size_t	i;
 	t_stack	*new;
 	t_stack	*p;
 
 	i = 0;
 	p = *head;
-	if(!p)
+	if (!p)
 	{
 		*head = create_node(num);
 		return ;
