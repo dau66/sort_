@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:09:39 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/04 21:22:34 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/07 18:29:29 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_stack	*delete_first_node(t_stack *head)
 	if (i == 1)
 	{
 		free(head);
-		return NULL;
+		return (NULL);
 	}
 	if (!head)
 		return (NULL);
@@ -49,7 +49,7 @@ t_stack	*create_node(int num)
 
 	newnode = (t_stack *)malloc(sizeof(t_stack));
 	if (!newnode)
-		exit(EXIT_FAILURE);
+		return (NULL);
 	newnode->value = num;
 	newnode->prev = NULL;
 	newnode->next = NULL;
@@ -67,26 +67,19 @@ void	link_list(t_stack **head, int num)
 	if (!p)
 	{
 		*head = create_node(num);
+		if ((*head) == NULL)
+			exit_free();
 		return ;
 	}
 	new = create_node(num);
-	while (p->next != NULL)
+	if (!new)
 	{
-		p = p->next;
+		free_linked_list(&p);
+		*head = p;
+		exit_free();
 	}
+	while (p->next != NULL)
+		p = p->next;
 	p->next = new;
 	new->prev = p;
-}
-
-void	create_circulater_list(t_stack *node)
-{
-	t_stack	*head;
-	t_stack	*tail;
-
-	head = node;
-	while (node->next != NULL)
-		node = node->next;
-	tail = node;
-	head->prev = tail;
-	tail->next = head;
 }

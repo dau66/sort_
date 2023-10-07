@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:25:30 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/04 21:09:33 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/07 13:59:20 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +36,33 @@ size_t	value_compare(t_stack *first)
 		&& (first->value < first->next->next->value))
 		return (0);
 	else if ((first->value < first->next->value)
-			&& (first->next->value > first->next->next->value)
-			&& (first->value > first->next->next->value))
+		&& (first->next->value > first->next->next->value)
+		&& (first->value > first->next->next->value))
 		return (1);
 	else if ((first->value > first->next->value)
-			&& (first->next->value < first->next->next->value)
-			&& (first->value > first->next->next->value))
+		&& (first->next->value < first->next->next->value)
+		&& (first->value > first->next->next->value))
 		return (2);
 	else if ((first->value > first->next->value)
-			&& (first->next->value < first->next->next->value)
-			&& (first->value < first->next->next->value))
+		&& (first->next->value < first->next->next->value)
+		&& (first->value < first->next->next->value))
 		return (3);
 	else if ((first->value > first->next->value)
-			&& (first->next->value > first->next->next->value))
+		&& (first->next->value > first->next->next->value))
 		return (4);
 	else
 		return (5);
 }
 
-size_t struct_count(t_stack *nodes)
+size_t	struct_count(t_stack *nodes)
 {
-	size_t i;
+	size_t	i;
+
 	i = 0;
-	while(nodes)
+	while (nodes)
 	{
 		nodes = nodes->next;
-		i ++;
+		i++;
 	}
-	return i;
+	return (i);
 }

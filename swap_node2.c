@@ -6,7 +6,7 @@
 /*   By: ksho <ksho@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:20:05 by ksho              #+#    #+#             */
-/*   Updated: 2023/10/03 14:05:53 by ksho             ###   ########.fr       */
+/*   Updated: 2023/10/07 13:53:34 by ksho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,11 @@ void	rrb(t_stack **node, int bool)
 		ft_printf("rrb\n");
 	(*node) = tail;
 }
+
 void	ss(t_stack **node1, t_stack **node2)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	first = *node1;
 	second = *node2;
@@ -95,8 +96,8 @@ void	ss(t_stack **node1, t_stack **node2)
 
 void	rr(t_stack **node1, t_stack **node2)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	first = *node1;
 	second = *node2;

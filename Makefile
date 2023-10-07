@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
-SRCS = push_swap.c handle_node.c swap_node1.c push_swap_free_and_error.c swap_node2.c swap_node3.c sort_small_swap.c sort_big_swap.c
+SRCS = push_swap.c handle_node.c swap_node1.c push_swap_free_and_error.c swap_node2.c swap_node3.c sort_small_swap.c sort_big_swap.c handle_intenger.c handle_intenger2.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -10,6 +10,7 @@ $(NAME): $(OBJS)
 	$(MAKE) -C libft
 	cp libft/libft.a $(NAME)
 	ar rcs $@ $(OBJS)
+	$(CC) -Wall -Wextra -Werror $(NAME) push_swap.c -o push_swap
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -28,5 +29,5 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
-a.out: $(NAME)
-	$(CC) -Wall -Wextra -Werror $(NAME) push_swap.c -o push_swap
+# a.out: $(NAME)
+# 	$(CC) -Wall -Wextra -Werror $(NAME) push_swap.c -o push_swap
